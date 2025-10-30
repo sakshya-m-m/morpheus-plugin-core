@@ -25,6 +25,7 @@ import com.morpheusdata.response.ServiceResponse;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Map;
 
 /**
  * Provides a standard set of methods for interacting with cloud integrations or on-prem service providers.
@@ -213,6 +214,15 @@ public interface CloudProvider extends PluginProvider {
 	 * @return ServiceResponse
 	 */
 	ServiceResponse deleteCloud(Cloud cloudInfo);
+
+	/**
+	 * Provides a summary of the associated cloud resources.
+	 * @param userInfo user
+	 * @param cloudInfo cloud
+	 * @param additionalCloudInfo Additional validation information
+	 * @return ServiceResponse
+	 */
+	ServiceResponse getCloudSummary(User userInfo, Cloud cloudInfo, Map additionalCloudInfo);
 
 	/**
 	 * Returns whether the cloud supports {@link ComputeZonePool}
